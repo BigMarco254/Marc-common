@@ -7,11 +7,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/bundle', (req, res) => {
     res.writeHead(200, {
         'Content-Type': 'text/html',
-        'Link': '<http://localhost:8081/bundle.js>; rel="fragment-script"'
+        'Link': '<https://marc-common.herokuapp.com/bundle.js>; rel="fragment-script"'
     });
     res.end('');
 });
 
-app.listen(8081, () => {
-  console.log('Server for common imports started at 8081')
+app.listen(process.env.PORT || 8081, () => {
+  console.log(`Server for common imports started at ${process.env.PORT || 8081}`)
 })
